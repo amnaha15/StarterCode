@@ -15,27 +15,27 @@ public class TemperatureChanger {
     Scanner scan = new Scanner(System.in);
     System.out.println("What would you like to convert? - insert number + F or C");
    
-    String input= scan.nextln();
-    input= input.toUpperCase();
+    String input= scan.nextLine();
+    char unit = input.charAt(input.length()-1);
     
-    int num = Integer.ParseInt(input.substring(0,input.length()-1));
+    double num = Double.parseDouble(input.substring(0,input.length()-1));
     
-    if(input.charAt(input.length())== 'F'){
+    if(unit == 'F'|| unit =='f'){
       //convert to Celsius
-     int celc= (num * (9/5)) + 32;
+     double celc= (num * (9.0/5)) + 32;
      System.out.println(num + "F is " + celc + "C");
     }
-    else if(input.charAt(input.length())=='C'){
+    else if(unit =='C'|| unit == 'c'){
       //convert to Fahrenheit
-      int fahr = (num - 32) * (5/9);
+      double fahr = (num - 32) * (5.0/9);
       System.out.println(num + "C is " + fahr + "F");
     }
-    else System.out.println("You didn't enter C or F");
+    else{
+ System.out.println("You didn't enter C or F");
+    }
     }
     }
    
-    }
-  
-}
+
 
 
